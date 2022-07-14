@@ -68,6 +68,15 @@ class Contenedor{
         }
     }
 
+    getRandom = async() =>{
+        try {
+            const arr = await this.getAll()
+            let numeroRandom = Math.floor(Math.random()*arr.length+1)
+            return (arr.find((element) => element.id == numeroRandom))
+        } catch (error) {
+            console.log("Hay un error" + error )
+        }
+    }
 }
 
 module.exports =Contenedor;
