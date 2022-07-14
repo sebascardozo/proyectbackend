@@ -1,4 +1,4 @@
-const fs = require('fs');
+import fs from 'fs';
 const path = 'src/files/productos.json'
 
 class Contenedor{
@@ -36,7 +36,7 @@ class Contenedor{
     getById = async(idNumber) =>{
         try {
             const data = await this.getAll();
-            if(data.length+1>=idNumber){
+            if(data.id !=idNumber){
                 console.log(data.find((element) => element.id == idNumber))
             }else{
                 console.log("null")
@@ -67,7 +67,6 @@ class Contenedor{
             console.log("Hay un error: " + error)
         }
     }
-
     getRandom = async() =>{
         try {
             const arr = await this.getAll()
@@ -77,6 +76,7 @@ class Contenedor{
             console.log("Hay un error" + error )
         }
     }
+
 }
 
-module.exports =Contenedor;
+export default Contenedor;
