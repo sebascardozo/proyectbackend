@@ -76,7 +76,23 @@ class Contenedor{
             console.log("Hay un error" + error )
         }
     }
-
+    actualizar = async(obj) =>{
+        let arr = await this.getAll()
+        let id = obj.id;
+        let titulo = obj.title;
+        let price = obj.prices;
+        let thumbnail = obj.thumbnail;
+        arr.map(function(dato){
+            if(dato.id == id){
+                dato.title = titulo;
+                dato.prices = price;
+                dato.thumbnail = thumbnail;
+            }
+        })
+        await fs.promises.writeFile(path,JSON.stringify(arr,null,'\t'));
+        console.log(arr)
+        return arr;
+    }
 }
 
 export default Contenedor;
