@@ -12,7 +12,7 @@ router.get('/',async(req,res)=>{
 
 //GET '/api/productos/:id' -> devuelve un producto según id.
 
-router.get('/id',async(req,res)=>{
+router.get('/api/productos/:id',async(req,res)=>{
     let Lista = await manager.getAll()
     if (req.query.id >Lista.length) {
         res.send("404 El valor pedido no existe")
@@ -34,14 +34,14 @@ router.post('/',async(req,res)=>{
 
 //PUT '/api/productos/:id' -> recibe y actualiza un producto según id.
 
-router.put('/',async(req,res)=>{
+router.put('/api/productos/:id',async(req,res)=>{
     let producto = req.body
    await manager.actualizar(producto)
 })
 
 
 //DELETE '/api/productos/:id' -> elimina un producto según id.
-router.delete('/',async(req,res)=>{
+router.delete('/api/productos/:id',async(req,res)=>{
     let id = req.body
     res.send("Eliminado")
    await manager.deleteById(id.delete)

@@ -38,6 +38,7 @@ class Contenedor{
             const data = await this.getAll();
             if(data.id !=idNumber){
                 console.log(data.find((element) => element.id == idNumber))
+                return data.find((element) => element.id == idNumber)
             }else{
                 console.log("null")
             }
