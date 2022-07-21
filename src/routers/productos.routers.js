@@ -1,54 +1,76 @@
 import { Router } from "express";
-import Manager from "../container/container.js"
-const manager  = new Manager();
+import Container from "../container/container.js"
+
 const router = Router();
+const ContainerService = new Container();
 
-///GET '/api/productos' -> devuelve todos los productos.
+router.get('/', async (req, res) => {
+    let objects = await ContainerService.getAll();
 
-router.get('/',async(req,res)=>{
-    let obtenerTodo = await manager.getAll()
-    res.send(obtenerTodo);
-})
+    res.send(objects)
+});
 
-//GET '/api/productos/:id' -> devuelve un producto según id.
 
-router.get('/api/productos/:id',async(req,res)=>{
-    let Lista = await manager.getAll()
-    if (req.query.id >Lista.length) {
-        res.send("404 El valor pedido no existe")
-    } else {
-        let numero = req.query.id
-        let obtenerId = await manager.getById(numero)
-        res.send(obtenerId)
-    }
+router.get('/api/productos/:id', async (req, res) => {
+    let idSearch = req.params.id;
 
-})
+    const error = 'INSERTAR NUMERO';
+    if(isNaN(idSearch)) return res.status(400).send({error})
 
-//POST '/api/productos' -> recibe y agrega.
+    let objectById = await ContainerService.getById(idSearch);
+
+    res.send(objectById)
+});
+
 
 router.post('/',async(req,res)=>{
-    let producto = req.body
-    res.send({status:"succes", message:"Product Added"})
-    await manager.save(producto)
-})
+    let product = req.body;
+    product.thumbnail = req.file.path;
+    console.log(product)
 
-//PUT '/api/productos/:id' -> recibe y actualiza un producto según id.
+    if(!product.title) return res.status(400).send({status:"error", message:"Invalid Title"})
+    if(!product.price) return res.status(400).send({status:"error", message:"Invalid Price"})
 
-router.put('/api/productos/:id',async(req,res)=>{
-    let producto = req.body
-   await manager.actualizar(producto)
-})
+    const saveObject = await ContainerService.save(product);
+    const objects = await ContainerService.getAll();
 
+    let returnId = objects[objects.length - 1].id;
+    let sum = returnId + '';
 
-//DELETE '/api/productos/:id' -> elimina un producto según id.
-router.delete('/api/productos/:id',async(req,res)=>{
-    let id = req.body
-    res.send("Eliminado")
-   await manager.deleteById(id.delete)
-})
+    res.send({status:"REALIZADO", message:"PRODUCTO AGREGADO", id:sum })
+});
 
 
+router.put('/api/productos/:id', async (req, res) => {
+    let newObject = req.body;
+    let idSearch = req.params.id;
+    let realNumber = parseInt(idSearch)
+
+    let newArray = [];
+
+    newArray.push(newObject);
+
+    const error = 'INSERTAR NUMERO CORRECTO';
+    if(isNaN(idSearch)) return res.status(400).send({error})
+
+    let objectById = await ContainerService.getById(realNumber);
+
+    objectById = newArray;
+
+    res.send({status: 'NUEVO PRODUCTO AGREGADO', 'Nuevo producto': newArray});
+});
 
 
+router.delete('/api/productos/:id', async (req, res) => {
+    let idDelete = req.params.id;
+    let realNumber = parseInt(idDelete)
+
+    const error = 'INSERTAR NUMERO CORRECTO';
+    if(isNaN(idDelete)) return res.status(400).send({error})
+    
+    let deleteProductById = await ContainerService.deleteById(realNumber);
+
+    res.send('PRODUCTO BORRADO')
+});
 
 export default router;

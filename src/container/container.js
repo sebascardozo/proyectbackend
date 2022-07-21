@@ -1,5 +1,5 @@
 import fs from 'fs';
-const path = 'src/files/productos.json'
+const path = '../files/productos.json'
 
 class Contenedor{
     getAll = async() =>{
@@ -42,7 +42,6 @@ class Contenedor{
             }else{
                 console.log("null")
             }
-
         } catch (error) {
             console.log("Hay un error: " + error)
         }
