@@ -5,9 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos</title>
+    <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-    <h1> Ver último producto agregado con su id asignado tocar...<a href="http://localhost:8080/api/productos/"> aqui</a></h1>
+    <h1>Hola, si desea ver su ultimo producto agregado con su id asignado valla<a href="http://localhost:8080/productos/"> aqui</a></h1>
+    <h3>USANDO HANDLEBARS</h2>
     <h2>Agregar Producto</h2>
     <form id="productosForm">
         <label><br>Title<br></label>
@@ -19,7 +21,7 @@
         <input type="submit">
     </form>
     <h2>Funciones</h2>
-    <form action="http://localhost:8080/api/productos/id" method="get">
+    <form action="http://localhost:8080/productos/id" method="get">
         <label><br>Buscar producto con id :</label>
         <input type = "number" name="id"required>
         <br><button>Buscar id</button>
