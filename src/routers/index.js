@@ -7,7 +7,7 @@ const router = Router();
 const productService = new Contenedor();
 
 router
-  .route('/id')
+  .route('/')
     .get((req, res) => {
       res.render('productForm', {
         title: 'Add Product'
