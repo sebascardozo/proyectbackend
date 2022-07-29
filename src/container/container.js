@@ -1,10 +1,14 @@
 import fs from 'fs';
 import __dirname from '../utils.js';
 
-let path = __dirname+'../files/productos.json';
+
 
 export default class Contenedor{
 
+  constructor () {
+
+  let path = __dirname+ '../files/productos.json';
+  } 
     getAll = async() => {
         try {
           if (fs.existsSync(this.path)) {
