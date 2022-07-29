@@ -1,8 +1,8 @@
 <div class="container-sm d-flex flex-column align-items-center">
   <img style="width: 100px; height: 100px; object-fit: contain;" src="http://localhost:8080/images/hbs.png">
-  <a class="link my-4 p-1 border border-primary rounded" href="http://localhost:8080/">Go to: LOAD NEW PRODUCT</a>
+  <a class="link my-4 p-1 border border-primary rounded" href="http://localhost:8080/">Cargar nuevo producto</a>
   {{#if hasProducts}}
-    <h1>PRODUCTS' LIST</h1>
+    <h1>Lista de productos</h1>
     {{#each products}}
       <div class="border border-3 border-success row w-50 m-1 rounded d-flex align-items-center" style="height: 80px;">
         <p class="m-2 col">{{this.title}}</p>
@@ -11,6 +11,6 @@
       </div>
     {{/each}}
   {{else}}
-    <h1>NO PRODUCTS FOUND</h1>
+    <h1>No se ecuentra producto</h1>
   {{/if}}
 </div>

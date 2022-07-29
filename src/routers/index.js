@@ -7,7 +7,7 @@ const router = Router();
 const productService = new Contenedor();
 
 router
-  .route('/')
+  .route('/id')
     .get((req, res) => {
       res.render('productForm', {
         title: 'Add Product'
@@ -15,7 +15,7 @@ router
     });
 
 router
-  .route('/products')
+  .route('/')
     .get(
       async (req, res) => {
         let products = await productService.getAll();
