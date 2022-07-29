@@ -31,11 +31,11 @@ router
       async (req, res) => {
         let newProduct = req.body
         newProduct.thumbnail = req.file.filename
-        if (!req.file) return res.status(500).json({ status: 'error', error: 'Could not upload file' });
-        if (!newProduct.title || !newProduct.price) return res.status(400).send({ status: 'error', error: 'Product name and price are required' })
+        if (!req.file) return res.status(500).json({ status: 'error', error: 'No se puede cargar' });
+        if (!newProduct.title || !newProduct.price) return res.status(400).send({ status: 'error', error: 'Nombre y precio de producto requerido' });
         const savedProductId = await productService.save(newProduct);
         const savedProduct = await productService.getById(savedProductId);
-        res.send({ status: 'success', message: `Product added with id: ${savedProductId}`, product: savedProduct });
+        res.send({ status: 'success', message: `Producto agregado con ID: ${savedProductId}`, product: savedProduct });
       }
     );
 
