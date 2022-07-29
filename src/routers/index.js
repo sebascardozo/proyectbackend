@@ -15,7 +15,7 @@ router
     });
 
 router
-  .route('/')
+  .route('/products')
     .get(
       async (req, res) => {
         let products = await productService.getAll();
