@@ -1,16 +1,31 @@
-<div class="container-sm d-flex flex-column align-items-center">
-  <img style="width: 100px; height: 100px; object-fit: contain;" src="http://localhost:8080/images/hbs.png">
-  <a class="link my-4 p-1 border border-primary rounded" href="http://localhost:8080/">Cargar nuevo producto</a>
-  {{#if hasProducts}}
-    <h1>Lista de productos</h1>
-    {{#each products}}
-      <div class="border border-3 border-success row w-50 m-1 rounded d-flex align-items-center" style="height: 80px;">
-        <p class="m-2 col">{{this.title}}</p>
-        <p class="m-2 col">${{this.price}}</p>
-        <img style="object-fit: contain;" class="col h-75" src="http://localhost:8080/images/{{this.thumbnail}}" alt="product">
-      </div>
-    {{/each}}
-  {{else}}
-    <h1>No se ecuentra producto</h1>
-  {{/if}}
+
+
+<div class="container-fluid bg-light">
+    <h1 class="text-primary">Vista de Productos</h1>
+        {{#if productos}}
+            <table class="table table-dark table-striped align-middle">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Foto</th>
+                </tr>
+                {{#each productos}}
+                    <tr>
+                        <td class="table-dark">{{this.title}}</td>
+                        <td class="table-dark">{{this.price}}</td>
+                        <td class="table-dark"><img src={{this.thumbnail}} width="100px"></td>
+                    </tr>                
+                {{/each}}
+            </table>
+        {{else}}
+            <div class="container-fluid bg-warning">
+                <h3 class="text-dark">No se encontraron productos.</h3>
+            </div>        
+        {{/if}}
+    <br>
+    <br>
+    <div class="col-md-12 text-center">
+        <a href="/" class="btn btn-success">Agregar Producto</a>
+    </div>
+    <br>
 </div>

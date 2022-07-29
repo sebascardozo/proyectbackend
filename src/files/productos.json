@@ -1,38 +1,27 @@
 [
 	{
 		"title": "impresora 3d",
-		"prices": "56.000",
+		"price": "56.000",
 		"thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_967936-MLA48896331386_012022-F.webp",
 		"id": 1
 	},
 	{
 		"title": "impresora resina",
-		"prices": "86.000",
+		"price": "86.000",
 		"thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_967936-MLA48896331386_012022-F.webp",
 		"id": 2
 	},
 	{
 		"title": "Filamento Pla",
-		"prices": "1.200",
+		"price": "1.200",
 		"thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_967936-MLA48896331386_012022-F.webp",
 		"id": 3
 	},
 	{
 		"title": "Filamento Pla",
-		"prices": "1.200",
+		"price": "1.200",
 		"thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_967936-MLA48896331386_012022-F.webp",
 		"id": 4
-	},
-	{
-		"title": "Filamento Pla",
-		"prices": "1.200",
-		"thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_967936-MLA48896331386_012022-F.webp",
-		"id": 5
-	},
-	{
-		"title": "Filamento Pla",
-		"prices": "1.200",
-		"thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_967936-MLA48896331386_012022-F.webp",
-		"id": 6
 	}
+
 ]

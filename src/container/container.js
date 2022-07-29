@@ -6,8 +6,7 @@ import __dirname from '../utils.js';
 export default class Contenedor{
 
   constructor () {
-
-  let path = __dirname+ '../files/productos.json';
+  this.path = __dirname  + '../files/productos.json';
   } 
     getAll = async() => {
         try {
