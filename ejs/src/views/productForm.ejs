@@ -1,8 +1,9 @@
+<%- include('./partials/head') %>
 <div class="container-sm d-flex flex-column align-items-center">
-  <img style="width: 100px; height: 100px; object-fit: contain;" src="http://localhost:8080/images/hbs.png">
-  <a class="link my-4 p-1 border border-primary rounded" href="http://localhost:8080/products">Ir a lista de Productos</a>
+  <img style="width: 100px; height: 100px; object-fit: contain;" src="http://localhost:8080/images/ejs.png">
+  <a class="link my-4 p-1 border border-primary rounded" href="http://localhost:8080/products">IR A LISTA DE PRODUCTOS</a>
   <div class="d-flex flex-column align-items-center">
-    <h1>Cargar nuevo de Producto</h1>
+    <h1>CARGAR NUEVO PRODUCTO</h1>
     <form id="productForm">
       <div class="mb-3">
         <label for="title" class="form-label">Nombre</label>
@@ -15,10 +16,9 @@
       <div class="mb-3">
         <input type="file" class="form-control" id="file" name="file">
       </div>
-      <button type="submit" class="btn btn-success">Agregar a producto</button>
+      <button type="submit" class="btn btn-success">AGREGAR PRODUCTO</button>
     </form>
   </div>
   <div class="response" id="response"></div>
 </div>
-<script src="../public/js /productForm.js"></script>
-
+<script src="js/productForm.js"></script>
