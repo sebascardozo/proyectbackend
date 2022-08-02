@@ -12,7 +12,7 @@ html
       if hasProducts
         h1="LISTA DE PRODUCTOS"
         each product in products
-          div(class="border border-3 border-success row w-50 m-1 rounded d-flex align-items-center", style="height: 80px;")
+          div(class="border border-3 border-primary row w-50 m-1 rounded d-flex align-items-center", style="height: 80px;")
             p(class="m-2 col")=product.title
             p(class="m-2 col")='$' + product.price
             img(style="object-fit: contain;", class="col h-75", src=`http://localhost:8080/images/${product.thumbnail}`, alt="product")
