@@ -9,7 +9,7 @@ const productService = new Contenedor();
 router
   .route('/')
     .get((req, res) => {
-      res.render('productForm', {
+      res.render('productForm.pug', {
         title: 'Add Product'
       })
     });
@@ -19,7 +19,7 @@ router
     .get(
       async (req, res) => {
         let products = await productService.getAll();
-        res.render('productList', {
+        res.render('productList.pug', {
           title: 'Products',
           hasProducts: products.length > 0,
           products
