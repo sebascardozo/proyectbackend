@@ -8,14 +8,13 @@ import multer from 'multer';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-export default __dirname;
 
 
 // Uploader
 
 const storage = multer.diskStorage({
-  destination: function(req, file, cb) {
-    cb(null, 'src/public/images')
+  destination:function(req,file,cb){
+      cb(null,__dirname+'/public/images')
   },
   filename: function(req, file, cb) {
     cb(null, Date.now() + '-' + file.originalname)
@@ -23,3 +22,4 @@ const storage = multer.diskStorage({
 })
 
 export const uploader = multer({ storage: storage });
+export default __dirname;
