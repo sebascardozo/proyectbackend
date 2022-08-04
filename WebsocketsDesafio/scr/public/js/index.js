@@ -67,7 +67,7 @@ socket.on('newProduct', (userId) => {
 let username;
 
 Swal.fire({
-  title: "Identifícate",
+  title: "Ingresar tu Nombre",
   input: "text",
   text: "Ingresa el usuario con el que te identificarás en el chat",
   inputValidator: (value) => {
@@ -111,7 +111,7 @@ function formatDate(date) {
 
 
 
-/* Event Listeners del chatBox */
+/* Event Listeners del canal de Chat */
 chatBox.addEventListener('keyup',evt=>{
   if (evt.key === "Enter") {
     if (chatBox.value.trim().length > 0) {
@@ -132,9 +132,12 @@ socket.on('log', (data) => {
   let messages = "";
   data.forEach(message => {
     const messageToAdd = (username === message.user)
-    ? `<span style="width: 200px;" class="border border-1 rounded border-primary bg-primary m-1 p-2 align-self-end"><b>${message.user}:</b> <i>${message.message}</i><br><small style="color: brown;">${message.date}</small><br><small style="color: brown;">${message.time}</small></span>`
-    : `<span style="width: 200px;" class="border border-1 rounded border-success bg-success m-1 p-2 align-self-start"><b>${message.user}:</b> <i>${message.message}</i><br><small style="color: brown;">${message.date}</small><br><small style="color: brown;">${message.time}</small></span>`;
+    ? `<span style="width: 150px;" class="border border-1 rounded border-primary bg-primary m-1 p-2 align-self-end"><b>${message.user}:</b> <i>${message.message}</i><br><small style="color: brown;">${message.date}</small><br><small style="color: brown;">${message.time}</small></span>`
+    : `<span style="width: 150px;" class="border border-1 rounded border-success bg-success m-1 p-2 align-self-start"><b>${message.user}:</b> <i>${message.message}</i><br><small style="color: brown;">${message.date}</small><br><small style="color: brown;">${message.time}</small></span>`;
     messages += messageToAdd;
   });
   log.innerHTML = messages;
 })
+
+
+//SE UTILIZA SWEET ALERT

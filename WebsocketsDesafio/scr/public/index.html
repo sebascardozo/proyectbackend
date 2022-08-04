@@ -30,9 +30,9 @@
       <div id="productListContainer" class="container-sm d-flex flex-column align-items-center"></div>
       <div class="m-5 container-sm d-flex flex-column align-items-center">
         <h1 class="m-2">Canal de Chat</h1>
-        <div style="height: 500px;" class="border border-3 border-danger rounded container-sm d-flex flex-column justify-content-end align-items-center">
-          <div style="height: 400px; overflow-y: auto;" class="w-75 d-flex flex-column justify-content-end align-items-start" id="log"></div>
-          <input class="m-2 w-100 h-25 border border-3 border-primary rounded align-self-center" id="chatBox">
+        <div style="height: 400px;" class="border border-3 bg-secondary border-danger rounded container-sm d-flex flex-column justify-content-end align-items-center">
+          <div style="height: 300px; overflow-y: auto;" class="w-75 d-flex flex-column justify-content-end align-items-start" id="log"></div>
+          <input class="m-2 w-100 h-25 border border-3  rounded align-self-center" id="chatBox">
         </div>
       </div>
     </div>
@@ -41,9 +41,9 @@
       {{#if products.length}}
         <h1 class="mt-5">LISTA DE PRODUCTOS</h1>
         {{#each products}}
-          <div class="border border-3 border-warning row w-75 m-1 rounded d-flex align-items-center" style="height: 80px;">
-            <p class="m-2 col text-bg-primary ">{{this.title}}</p>
-            <p class="m-2 col">${{this.price}}</p>
+          <div class="border border-3 border-light bg-primary row w-75 m-1 rounded d-flex align-items-center" style="height: 80px;">
+            <p class="m-2 col badge fs-3">{{this.title}}</p>
+            <p class="m-2 col text-light fs-3 align-items-center">${{this.price}}</p>
             <img style="object-fit: contain;" class="col h-75" src="http://localhost:8080/images/{{this.thumbnail}}" alt="product">
           </div>
         {{/each}}
